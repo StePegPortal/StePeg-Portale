@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="it">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>StePeg · Portale personale</title>
+  <style>
+    :root{--bg:#071321;--panel:#0d2033;--panel2:#102941;--line:#29435d;--text:#edf4fb;--muted:#9db1c5;--gold:#d7ad55;--silver:#c8d1da;--blue:#79a9d2;--danger:#d98282}
+    *{box-sizing:border-box}body{margin:0;background:radial-gradient(circle at 20% 0,#12304b 0,#071321 42%);color:var(--text);font-family:Inter,Segoe UI,Arial,sans-serif;min-height:100vh}
+    button{font:inherit;color:inherit;cursor:pointer}.shell{display:flex;min-height:100vh}.sidebar{width:250px;background:rgba(5,15,27,.88);border-right:1px solid var(--line);padding:24px 16px;position:fixed;inset:0 auto 0 0}.brand{font-size:28px;letter-spacing:.08em;font-weight:800;color:var(--silver);margin:4px 10px 5px}.brand span{color:var(--gold)}.tag{color:var(--muted);font-size:12px;margin:0 10px 28px}.nav{display:grid;gap:8px}.nav button{background:transparent;border:1px solid transparent;text-align:left;padding:12px 13px;border-radius:10px;color:var(--muted)}.nav button:hover,.nav button.active{background:var(--panel2);border-color:var(--line);color:var(--text)}.nav button.active{box-shadow:inset 3px 0 0 var(--gold)}.nav small{display:block;color:#71899f;text-transform:uppercase;letter-spacing:.12em;font-size:10px;margin:20px 12px 4px}.main{margin-left:250px;width:calc(100% - 250px);padding:28px clamp(22px,4vw,56px)}.top{display:flex;justify-content:space-between;gap:16px;align-items:center;margin-bottom:34px}.crumb{color:var(--muted);font-size:13px}.search{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:11px 14px;min-width:min(360px,50vw);color:var(--text)}.view{display:none}.view.active{display:block}.eyebrow{color:var(--gold);text-transform:uppercase;letter-spacing:.16em;font-size:11px;font-weight:700}.hero h1{font-size:clamp(32px,5vw,58px);line-height:1.02;margin:10px 0}.hero p{max-width:680px;color:var(--muted);font-size:16px;line-height:1.6}.grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;margin:26px 0}.card{background:linear-gradient(145deg,rgba(16,41,65,.92),rgba(9,27,44,.95));border:1px solid var(--line);border-radius:14px;padding:19px;min-height:120px}.card h3{margin:0 0 8px;font-size:17px}.metric{font-size:29px;color:var(--silver);font-weight:800}.muted{color:var(--muted);font-size:13px;line-height:1.45}.gold{color:var(--gold)}.section-title{display:flex;justify-content:space-between;align-items:end;margin:32px 0 14px}.section-title h2{margin:0;font-size:22px}.link{background:none;border:0;color:var(--gold);padding:0}.table{width:100%;border-collapse:collapse;background:rgba(13,32,51,.62);border:1px solid var(--line);border-radius:12px;overflow:hidden}.table th,.table td{text-align:left;padding:13px 14px;border-bottom:1px solid rgba(41,67,93,.65);font-size:14px}.table th{color:var(--silver);font-size:11px;text-transform:uppercase;letter-spacing:.1em;background:rgba(16,41,65,.85)}.table tr:last-child td{border-bottom:0}.pill{display:inline-block;border:1px solid var(--line);border-radius:999px;padding:4px 8px;color:var(--muted);font-size:11px}.pill.gold{border-color:#80652d;color:var(--gold)}.notice{border-left:3px solid var(--gold);background:rgba(215,173,85,.08);padding:13px 15px;color:var(--muted);border-radius:5px;margin-top:18px}.module-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin-top:24px}.module{min-height:160px;display:flex;flex-direction:column;justify-content:space-between}.module button{align-self:flex-start;background:transparent;border:1px solid var(--line);border-radius:8px;padding:8px 11px;color:var(--silver)}.module button:hover{border-color:var(--gold);color:var(--gold)}.back{display:inline-flex;gap:8px;align-items:center;background:transparent;border:0;color:var(--muted);padding:0;margin-bottom:22px}.empty{border:1px dashed var(--line);border-radius:12px;padding:28px;color:var(--muted);text-align:center;margin-top:20px}
+    @media(max-width:900px){.sidebar{width:76px;padding:20px 10px}.brand{font-size:18px;margin:6px 8px}.tag,.nav small,.nav button span{display:none}.nav button{text-align:center;padding:13px 8px}.main{margin-left:76px;width:calc(100% - 76px);padding:22px}.grid{grid-template-columns:repeat(2,minmax(0,1fr))}.module-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.search{min-width:180px}}
+    @media(max-width:560px){.top{align-items:flex-start;flex-direction:column}.search{width:100%;min-width:0}.grid,.module-grid{grid-template-columns:1fr}.table{display:block;overflow-x:auto;white-space:nowrap}.hero h1{font-size:38px}}
+  </style>
+</head>
+<body>
+  <div class="shell">
+    <aside class="sidebar">
+      <div class="brand">Ste<span>Peg</span></div><p class="tag">Portale personale</p>
+      <nav class="nav">
+        <button class="active" data-view="home">⌂ <span>Home</span></button>
+        <small>Sezioni</small>
+        <button data-view="cinepeg">◈ <span>CinePeg</span></button>
+        <button data-view="legapeg">⚽ <span>LegaPeg</span></button>
+        <button data-view="contapeg">▣ <span>ContaPeg</span></button>
+        <button data-view="regalipeg">◇ <span>RegaliPeg</span></button>
+        <button data-view="atletipeg">✦ <span>AtletiPeg</span></button>
+      </nav>
+    </aside>
+    <main class="main">
+      <div class="top"><div class="crumb" id="crumb">StePeg / Home</div><input class="search" id="search" placeholder="Cerca in StePeg…" /></div>
+
+      <section class="view active" id="home">
+        <div class="hero"><div class="eyebrow">Portale personale</div><h1>Benvenuto in StePeg.</h1><p>Il punto di accesso ai tuoi archivi personali. Le sezioni sono indipendenti, ma convivono in un unico spazio privato e ordinato.</p></div>
+        <div class="module-grid">
+          <article class="card module"><div><div class="eyebrow">Archivio cinematografico</div><h3>CinePeg</h3><p class="muted">Film, attori, Oscar, filmografie e storico delle visioni.</p></div><a href="cinepeg.html">Apri CinePeg →</a></article>
+          <article class="card module"><div><div class="eyebrow">Portale attivo</div><h3>LegaPeg</h3><p class="muted">Accesso al portale della tua lega fantacalcio.</p></div><button data-view="legapeg">Apri sezione →</button></article>
+          <article class="card module"><div><div class="eyebrow">In progettazione</div><h3>ContaPeg</h3><p class="muted">La tua contabilità personale.</p></div><button data-view="contapeg">Dettagli →</button></article>
+          <article class="card module"><div><div class="eyebrow">In progettazione</div><h3>RegaliPeg</h3><p class="muted">Idee, acquisti, occasioni e budget per i regali.</p></div><button data-view="regalipeg">Dettagli →</button></article>
+          <article class="card module"><div><div class="eyebrow">In progettazione</div><h3>AtletiPeg</h3><p class="muted">Archivio e statistiche dedicate all’atletica.</p></div><button data-view="atletipeg">Dettagli →</button></article>
+        </div>
+      </section>
+
+      <section class="view" id="cinepeg">
+        <button class="back" data-view="home">← Torna a StePeg</button><div class="eyebrow">Archivio cinematografico</div><h1>CinePeg</h1><p class="muted">La tua cineteca personale, costruita a partire dal master Excel.</p>
+        <div class="grid"><article class="card"><h3>Film posseduti</h3><div class="metric">1.712</div><p class="muted">Tutti già visti</p></article><article class="card"><h3>Film da recuperare</h3><div class="metric">—</div><p class="muted">Lista in importazione</p></article><article class="card"><h3>Persone</h3><div class="metric">557</div><p class="muted">Attori, registi e altri</p></article><article class="card"><h3>Oscar</h3><div class="metric">1928–2028</div><p class="muted">Categorie selezionate</p></article></div>
+        <div class="section-title"><h2>Accessi rapidi</h2></div><div class="module-grid"><article class="card module"><div><h3>Film</h3><p class="muted">Posseduti, visti, da recuperare e da rivedere.</p></div><a href="films.html">Apri archivio →</a></article><article class="card module"><div><h3>Attori e persone</h3><p class="muted">Compleanni, biografie e collegamenti.</p></div><a href="people.html">Apri database →</a></article><article class="card module"><div><h3>Oscar</h3><p class="muted">Vincitori, nominati e annotazioni personali.</p></div><a href="oscar.html">Apri master →</a></article></div>
+        <div class="notice">Questa è la prima base grafica di CinePeg. I dati completi verranno importati e collegati nelle fasi successive.</div>
+      </section>
+
+      <section class="view" id="films"><button class="back" data-view="cinepeg">← Torna a CinePeg</button><div class="eyebrow">Archivio Film</div><h1>Film posseduti</h1><p class="muted">Tutti i film presenti nella tua collezione, già visti.</p><div class="section-title"><h2>Elenco completo</h2><span class="pill gold" id="filmCount"></span></div><div style="display:flex;gap:10px;flex-wrap:wrap;margin-bottom:14px"><input class="search" id="filmSearch" placeholder="Cerca titolo, regista o genere…" style="min-width:240px"/><select class="search" id="genreFilter" style="min-width:170px"><option value="">Tutti i generi</option></select></div><table class="table"><thead><tr><th>Titolo</th><th>Anno</th><th>Genere</th><th>Rating</th><th>Supporto</th><th>Regista</th><th>Revisione</th></tr></thead><tbody id="filmRows"></tbody></table></section>
+      <section class="view" id="visions"><button class="back" data-view="cinepeg">← Torna a CinePeg</button><div class="eyebrow">Diario quotidiano</div><h1>Film visti</h1><p class="muted">Lo storico delle visioni, indipendente dal possesso del film.</p><div class="section-title"><h2>Visioni importate</h2><span class="pill gold" id="visionCount"></span></div><input class="search" id="visionSearch" placeholder="Cerca tra le visioni…" style="margin-bottom:14px"/><table class="table"><thead><tr><th>Data</th><th>Titolo</th><th>Archivio</th></tr></thead><tbody id="visionRows"></tbody></table></section>
+      <section class="view" id="rewatch"><button class="back" data-view="cinepeg">← Torna a CinePeg</button><div class="eyebrow">Programma personale</div><h1>Film da rivedere</h1><p class="muted">Prima i titoli in grassetto, poi quelli contrassegnati dal numero rosso.</p><div class="section-title"><h2>Priorità 1</h2></div><table class="table"><thead><tr><th>Titolo</th><th>Anno</th><th>Genere</th><th>Regista</th></tr></thead><tbody id="rewatchOne"></tbody></table><div class="section-title"><h2>Priorità 2</h2></div><table class="table"><thead><tr><th>Titolo</th><th>Anno</th><th>Genere</th><th>Regista</th></tr></thead><tbody id="rewatchTwo"></tbody></table></section>
+      <section class="view" id="people"><button class="back" data-view="cinepeg">← Torna a CinePeg</button><div class="eyebrow">Database persone</div><h1>Attori e persone</h1><p class="muted">La sezione Attori sarà collegata nella prossima fase, con compleanni e aggiornamenti.</p><div class="empty">557 persone pronte per l’importazione.</div></section>
+      <section class="view" id="oscar"><button class="back" data-view="cinepeg">← Torna a CinePeg</button><div class="eyebrow">Archivio storico</div><h1>Oscar</h1><p class="muted">Il master Oscar sarà collegato dopo la normalizzazione delle categorie e delle annotazioni personali.</p><div class="empty">Categorie e cerimonie pronte per la fase di importazione.</div></section>
+
+      <section class="view" id="legapeg"><button class="back" data-view="home">← Torna a StePeg</button><div class="eyebrow">Sezione attiva</div><h1>LegaPeg</h1><p class="muted">Collegamento al portale della lega già realizzato.</p><div class="empty">Il collegamento al portale LegaPeg verrà inserito nella configurazione finale.</div></section>
+      <section class="view" id="contapeg"><button class="back" data-view="home">← Torna a StePeg</button><div class="eyebrow">In progettazione</div><h1>ContaPeg</h1><p class="muted">La sezione dedicata alla tua contabilità personale sarà progettata in una fase successiva.</p></section>
+      <section class="view" id="regalipeg"><button class="back" data-view="home">← Torna a StePeg</button><div class="eyebrow">In progettazione</div><h1>RegaliPeg</h1><p class="muted">La sezione dedicata alla gestione dei regali sarà progettata in una fase successiva.</p></section>
+      <section class="view" id="atletipeg"><button class="back" data-view="home">← Torna a StePeg</button><div class="eyebrow">In progettazione</div><h1>AtletiPeg</h1><p class="muted">La sezione dedicata all’atletica sarà progettata in una fase successiva.</p></section>
+    </main>
+  </div>
+  <script src="film-data.js"></script>
+  <script src="visioni-data.js"></script>
+  <script>
+    const films=window.CINEPEG_FILMS||[];
+    const visioni=window.CINEPEG_VISIONI||[];
+    document.querySelector('#cinepeg .metric').textContent=films.length.toLocaleString('it-IT');
+    document.querySelector('#cinepeg .grid .card:nth-child(3) .metric').textContent='557';
+    const seenTitles=new Set(visioni.map(v=>v.title.toLowerCase()));
+    const latest=visioni.slice(-6).reverse();
+    const cineSection=document.querySelector('#cinepeg');
+    const title=cineSection.querySelector('.section-title');
+    const tableWrap=document.createElement('div');
+    tableWrap.innerHTML='<div class="section-title"><h2>Ultime visioni registrate</h2><span class="pill gold">'+visioni.length.toLocaleString('it-IT')+' visioni importate</span></div><table class="table"><thead><tr><th>Data</th><th>Film</th><th>Archivio</th></tr></thead><tbody>'+latest.map(v=>{const match=films.some(f=>f.title.toLowerCase()===v.title.toLowerCase());return '<tr><td>'+ (v.date||'—') +'</td><td>'+v.title+'</td><td><span class="pill '+(match?'gold':'')+'">'+(match?'Presente':'Da collegare')+'</span></td></tr>'}).join('')+'</tbody></table>';
+    cineSection.insertBefore(tableWrap,title);
+    const rewatch=films.filter(f=>f.rewatchPriority===1).length;
+    const recovery=films.filter(f=>f.rewatchPriority===2).length;
+    const note=document.createElement('div'); note.className='notice'; note.textContent='Importati '+films.length.toLocaleString('it-IT')+' film posseduti, '+visioni.length.toLocaleString('it-IT')+' visioni e '+rewatch+' film da rivedere con priorità 1. I '+recovery+' film con numero rosso sono classificati come priorità 2.'; cineSection.appendChild(note);
+    const labels={home:'Home',cinepeg:'CinePeg',films:'CinePeg / Film posseduti',visions:'CinePeg / Film visti',rewatch:'CinePeg / Film da rivedere',people:'CinePeg / Attori e persone',oscar:'CinePeg / Oscar',legapeg:'LegaPeg',contapeg:'ContaPeg',regalipeg:'RegaliPeg',atletipeg:'AtletiPeg'};
+    function show(id){document.querySelectorAll('.view').forEach(v=>v.classList.toggle('active',v.id===id));document.querySelectorAll('[data-view]').forEach(b=>b.classList.toggle('active',b.dataset.view===id&&b.closest('.nav')));document.getElementById('crumb').textContent='StePeg / '+labels[id];window.scrollTo({top:0,behavior:'smooth'})}
+    document.addEventListener('click',e=>{const b=e.target.closest('[data-view]');if(b)show(b.dataset.view)});
+    document.getElementById('search').addEventListener('keydown',e=>{if(e.key==='Enter'&&e.target.value.trim()){show('cinepeg')}});
+    function rowFilm(f){return '<tr><td>'+f.title+'</td><td>'+ (f.year||'—') +'</td><td>'+f.genre+'</td><td>'+f.personalRating+'</td><td>'+f.support+'</td><td>'+f.director+'</td><td>'+ (f.rewatchPriority===1?'<span class="pill gold">Priorità 1</span>':f.rewatchPriority===2?'<span class="pill">Priorità 2</span>':'—') +'</td></tr>'}
+    function renderFilms(){const q=(document.getElementById('filmSearch')?.value||'').toLowerCase();const g=document.getElementById('genreFilter')?.value||'';const data=films.filter(f=>(!q||[f.title,f.genre,f.director].join(' ').toLowerCase().includes(q))&&(!g||f.genre===g));document.getElementById('filmCount').textContent=data.length.toLocaleString('it-IT')+' film';document.getElementById('filmRows').innerHTML=data.slice(0,300).map(rowFilm).join('')||'<tr><td colspan="7">Nessun risultato.</td></tr>'}
+    const genres=[...new Set(films.map(f=>f.genre).filter(Boolean))].sort((a,b)=>a.localeCompare(b,'it'));
+    document.getElementById('genreFilter').innerHTML += genres.map(g=>'<option>'+g+'</option>').join('');
+    document.getElementById('filmSearch').addEventListener('input',renderFilms);document.getElementById('genreFilter').addEventListener('change',renderFilms);
+    function renderVisions(){const q=(document.getElementById('visionSearch')?.value||'').toLowerCase();const data=visioni.filter(v=>v.title.toLowerCase().includes(q));document.getElementById('visionCount').textContent=data.length.toLocaleString('it-IT')+' visioni';document.getElementById('visionRows').innerHTML=data.slice().reverse().slice(0,400).map(v=>'<tr><td>'+ (v.date||'—') +'</td><td>'+v.title+'</td><td><span class="pill '+(films.some(f=>f.title.toLowerCase()===v.title.toLowerCase())?'gold':'')+'">'+(films.some(f=>f.title.toLowerCase()===v.title.toLowerCase())?'Presente':'Da collegare')+'</span></td></tr>').join('')}
+    document.getElementById('visionSearch').addEventListener('input',renderVisions);
+    const one=films.filter(f=>f.rewatchPriority===1),two=films.filter(f=>f.rewatchPriority===2);document.getElementById('rewatchOne').innerHTML=one.map(f=>'<tr><td>'+f.title+'</td><td>'+f.year+'</td><td>'+f.genre+'</td><td>'+f.director+'</td></tr>').join('');document.getElementById('rewatchTwo').innerHTML=two.map(f=>'<tr><td>'+f.title+'</td><td>'+f.year+'</td><td>'+f.genre+'</td><td>'+f.director+'</td></tr>').join('');renderFilms();renderVisions();
+  </script>
+</body>
+</html>
